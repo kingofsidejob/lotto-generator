@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-adsense-account" content="ca-pub-1004898037535388">
+    <title>랜덤 번호 생성 원리 | JavaScript Math.random() 이해하기</title>
+    <meta name="description" content="JavaScript가 무작위 번호를 생성하는 방법, 진정한 난수 vs 의사 난수, 그리고 공정성에 대해 설명합니다.">
+    <link rel="stylesheet" href="/style.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1004898037535388" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <script src="/shared/header.js" type="module"></script>
+
+    <main class="legal-page">
+        <div class="legal-container">
+            <div class="legal-header">
+                <span class="blog-category">사용 방법</span>
+                <h1>랜덤 번호 생성 원리</h1>
+                <p class="page-subtitle">우리 로또 번호 생성기가 작동하는 방식</p>
+            </div>
+
+            <div class="legal-content">
+                <section class="legal-section">
+                    <h2>Math.random() 함수란?</h2>
+                    <p>
+                        본 사이트의 로또 번호 생성기는 JavaScript의 <code>Math.random()</code> 함수를 사용합니다.
+                        이 함수는 0 이상 1 미만의 무작위 실수를 반환합니다. 예를 들어, 0.532894 또는 0.123456 같은 값입니다.
+                    </p>
+                    <p>
+                        1부터 45까지의 정수를 얻기 위해 다음과 같은 공식을 사용합니다:
+                    </p>
+                    <pre style="background: var(--background-color); padding: 15px; border-radius: 10px; overflow-x: auto;">
+Math.floor(Math.random() * 45) + 1
+                    </pre>
+                    <p>
+                        이 공식은 0~44 사이의 정수를 생성한 후 1을 더해서 1~45 범위로 만듭니다.
+                    </p>
+                </section>
+
+                <section class="legal-section">
+                    <h2>진정한 난수 vs 의사 난수</h2>
+                    <h3>진정한 난수 (True Random Number)</h3>
+                    <p>
+                        진정한 난수는 예측 불가능한 물리적 현상에서 생성됩니다. 예를 들어:
+                    </p>
+                    <ul>
+                        <li>방사성 붕괴 (원자 수준의 무작위 현상)</li>
+                        <li>대기 소음 (atmospheric noise)</li>
+                        <li>양자 역학적 불확정성</li>
+                    </ul>
+                    <p>
+                        공식 로또 추첨기는 공기 흐름과 공의 물리적 운동을 사용하므로 진정한 난수에 가깝습니다.
+                    </p>
+
+                    <h3>의사 난수 (Pseudo-Random Number)</h3>
+                    <p>
+                        컴퓨터는 완전히 결정론적(deterministic)이므로 진정한 난수를 생성할 수 없습니다.
+                        대신 <strong>의사 난수 생성기(PRNG: Pseudo-Random Number Generator)</strong>를 사용합니다.
+                    </p>
+                    <p>
+                        의사 난수는 알고리즘으로 생성되며, 초기 값(seed)이 같으면 같은 순서로 숫자가 생성됩니다.
+                        하지만 seed가 충분히 복잡하고 알고리즘이 잘 설계되었다면, 실용적으로는 진정한 난수와 구별하기 어렵습니다.
+                    </p>
+                </section>
+
+                <div class="ad-container">
+                    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1004898037535388" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+                </div>
+
+                <section class="legal-section">
+                    <h2>JavaScript의 PRNG 알고리즘</h2>
+                    <p>
+                        현대 브라우저의 <code>Math.random()</code>은 <strong>xorshift128+</strong> 같은 고품질 알고리즘을 사용합니다.
+                        이 알고리즘들은:
+                    </p>
+                    <ul>
+                        <li><strong>균등 분포:</strong> 모든 숫자가 같은 확률로 선택됨</li>
+                        <li><strong>긴 주기:</strong> 패턴이 반복되기까지 매우 긴 시간이 걸림 (2^128 이상)</li>
+                        <li><strong>예측 불가능:</strong> 과거 값으로 미래 값을 예측할 수 없음</li>
+                    </ul>
+                    <p>
+                        Seed는 보통 현재 시간(밀리초 단위)과 브라우저의 엔트로피 풀(entropy pool)을 결합하여 생성됩니다.
+                    </p>
+                </section>
+
+                <section class="legal-section">
+                    <h2>중복 없이 6개 선택하기</h2>
+                    <p>
+                        로또는 중복 없이 6개의 번호를 선택해야 합니다. 우리는 <code>Set</code> 자료구조를 사용합니다:
+                    </p>
+                    <pre style="background: var(--background-color); padding: 15px; border-radius: 10px; overflow-x: auto;">
+const numbers = new Set();
+while (numbers.size < 6) {
+    const randomNumber = Math.floor(Math.random() * 45) + 1;
+    numbers.add(randomNumber);
+}
+return Array.from(numbers).sort((a, b) => a - b);
+                    </pre>
+                    <p>
+                        <code>Set</code>은 자동으로 중복을 제거하므로, 이미 선택된 번호가 다시 나오면 무시됩니다.
+                        6개의 고유한 번호가 모일 때까지 반복합니다.
+                    </p>
+                </section>
+
+                <div class="ad-container">
+                    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1004898037535388" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+                </div>
+
+                <section class="legal-section">
+                    <h2>공정성: 모든 번호가 동일한 확률</h2>
+                    <p>
+                        우리 알고리즘은 <strong>완전히 공정</strong>합니다. 1부터 45까지 모든 번호는 정확히 동일한 확률(1/45)로 선택됩니다.
+                    </p>
+                    <p>
+                        다음은 우리가 <strong>하지 않는</strong> 것들입니다:
+                    </p>
+                    <ul>
+                        <li>특정 번호에 가중치를 두지 않음</li>
+                        <li>과거 당첨 번호를 참고하지 않음</li>
+                        <li>패턴을 생성하거나 피하지 않음</li>
+                        <li>사용자 데이터를 수집하거나 저장하지 않음</li>
+                    </ul>
+                    <p>
+                        100% 투명한 무작위 번호 생성입니다.
+                    </p>
+                </section>
+
+                <section class="legal-section">
+                    <h2>보안과 예측 불가능성</h2>
+                    <p>
+                        일부 PRNG는 암호학적으로 안전하지 않아서, 과거 값으로 미래 값을 예측할 수 있습니다.
+                        하지만 <code>Math.random()</code>은 로또 번호 생성 같은 일반적 용도에는 충분히 안전합니다.
+                    </p>
+                    <p>
+                        만약 암호화나 보안이 중요한 경우라면 <code>crypto.getRandomValues()</code>를 사용해야 하지만,
+                        로또 번호 생성에는 <code>Math.random()</code>으로도 충분합니다.
+                    </p>
+                </section>
+
+                <div class="ad-container">
+                    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1004898037535388" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+                </div>
+
+                <section class="legal-section">
+                    <h2>투명성과 오픈 소스</h2>
+                    <p>
+                        우리 코드는 브라우저에서 실행되므로 누구나 확인할 수 있습니다.
+                        브라우저의 개발자 도구(F12)를 열어서 소스 코드를 직접 볼 수 있습니다.
+                    </p>
+                    <p>
+                        우리는 숨기는 것이 없습니다. 단순하고, 공정하고, 투명한 무작위 번호 생성입니다.
+                    </p>
+                </section>
+
+                <section class="legal-section">
+                    <h2>결론</h2>
+                    <p>
+                        본 사이트의 로또 번호 생성기는 JavaScript의 표준 난수 생성 함수를 사용하여
+                        완전히 무작위로, 공정하게 번호를 생성합니다. 어떤 조작이나 편향도 없으며,
+                        모든 번호는 동일한 확률로 선택됩니다.
+                    </p>
+                    <p>
+                        기술적으로는 "의사 난수"이지만, 실용적 목적에서는 진정한 난수와 구별할 수 없을 정도로
+                        고품질입니다. 안심하고 사용하세요!
+                    </p>
+                </section>
+
+                <div class="legal-footer-note">
+                    <p>
+                        <strong>관련 글:</strong>
+                        <a href="/blog/how-our-tools-work.html">우리 도구의 작동 원리</a>,
+                        <a href="/blog/understanding-lottery-odds.html">로또 확률의 이해</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <script src="/shared/footer.js" type="module"></script>
+</body>
+</html>

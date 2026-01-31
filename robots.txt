@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://your-domain.com/sitemap.xml
+
+# Google AdSense Bot
+User-agent: Mediapartners-Google
+Allow: /
+
+# Disallow admin or sensitive paths (if any in future)
+# Disallow: /admin/

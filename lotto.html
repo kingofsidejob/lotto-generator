@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-adsense-account" content="ca-pub-1004898037535388">
+
+    <!-- SEO Meta Tags -->
+    <title>로또 번호 생성기 | 무료 랜덤 번호 생성 도구</title>
+    <meta name="description" content="무료 로또 번호 생성기로 1-45 중 무작위 6개 숫자를 생성하세요. 공정한 랜덤 알고리즘, 엔터테인먼트 목적, 개인정보 수집 없음.">
+    <meta name="keywords" content="로또 번호 생성, 랜덤 번호, 무료 로또, 번호 추첨, 로또 6/45">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="로또 번호 생성기 - 무료 랜덤 번호 생성">
+    <meta property="og:description" content="공정한 랜덤 알고리즘으로 로또 번호를 생성합니다. 완전 무료, 개인정보 보호.">
+    <meta property="og:locale" content="ko_KR">
+
+    <link rel="stylesheet" href="/style.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1004898037535388"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- Header -->
+    <div id="header-placeholder"></div>
+    <script src="/shared/header.js" type="module"></script>
+
+    <main>
+        <!-- Lotto Generator Section -->
+        <div class="tab-content active" id="lotto-tab">
+            <div class="container">
+                <h1>🎲 로또 번호 생성기</h1>
+                <p style="margin-bottom: 30px; opacity: 0.8;">
+                    1부터 45까지의 숫자 중 무작위로 6개의 번호를 생성합니다.
+                </p>
+                <div class="lotto-numbers" id="lotto-numbers"></div>
+                <button id="generate-btn">번호 생성</button>
+            </div>
+        </div>
+
+        <!-- AdSense Ad Unit 1 -->
+        <div class="ad-container">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-1004898037535388"
+                 data-ad-slot="auto"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <!-- How to Use Section -->
+        <section class="legal-page" style="margin-top: 40px;">
+            <div class="legal-container">
+                <h2>사용 방법</h2>
+                <div class="legal-section">
+                    <p>
+                        로또 번호 생성기는 간단하게 사용할 수 있습니다. "번호 생성" 버튼을 클릭하면
+                        JavaScript의 Math.random() 함수를 사용하여 1부터 45까지의 숫자 중 중복 없이 6개의 숫자를 무작위로 선택합니다.
+                    </p>
+                    <p>
+                        생성된 번호는 자동으로 오름차순으로 정렬되어 표시됩니다. 각 번호는 로또 공식 색상 구분에 따라
+                        다른 색상으로 표시됩니다:
+                    </p>
+                    <ul>
+                        <li><strong>1-10:</strong> 연한 빨강</li>
+                        <li><strong>11-20:</strong> 연한 파랑</li>
+                        <li><strong>21-30:</strong> 연한 노랑</li>
+                        <li><strong>31-40:</strong> 연한 초록</li>
+                        <li><strong>41-45:</strong> 연한 보라</li>
+                    </ul>
+                    <p>
+                        마음에 드는 번호가 나올 때까지 원하는 만큼 번호를 생성할 수 있습니다.
+                        생성 횟수에 제한은 없으며, 모든 기능은 완전히 무료입니다.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- AdSense Ad Unit 2 -->
+        <div class="ad-container">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-1004898037535388"
+                 data-ad-slot="auto"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <!-- FAQ Section -->
+        <section class="legal-page">
+            <div class="legal-container">
+                <h2>자주 묻는 질문 (FAQ)</h2>
+
+                <div class="faq-item">
+                    <h3>Q: 이 번호로 로또에 당첨될 수 있나요?</h3>
+                    <p>
+                        A: 로또 1등 당첨 확률은 약 814만 5,060분의 1입니다. 본 생성기를 사용하든 직접 번호를 선택하든
+                        당첨 확률은 동일합니다. 본 생성기는 단순히 무작위 번호를 제공할 뿐이며,
+                        <strong>당첨을 보장하거나 예측하지 않습니다.</strong>
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Q: 번호는 정말 무작위로 생성되나요?</h3>
+                    <p>
+                        A: 네, JavaScript의 Math.random() 함수를 사용하여 완전히 무작위로 번호를 생성합니다.
+                        과거 당첨 번호를 분석하거나 패턴을 찾는 알고리즘은 사용하지 않습니다.
+                        모든 번호는 동일한 확률로 선택됩니다.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Q: 본 사이트에서 로또를 구매할 수 있나요?</h3>
+                    <p>
+                        A: <strong>아니요.</strong> 본 사이트는 번호 생성 도구만 제공하며, 로또 복권을 판매하지 않습니다.
+                        공식 로또 복권 구매는 <a href="https://www.dhlottery.co.kr" target="_blank" rel="noopener">나눔로또 공식 사이트</a>
+                        또는 공식 판매점에서만 가능합니다.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Q: 생성된 번호는 저장되나요?</h3>
+                    <p>
+                        A: 아니요, 본 사이트는 생성된 번호를 저장하지 않습니다. 모든 번호는 사용자의 브라우저에서만 표시되며,
+                        서버로 전송되거나 기록되지 않습니다. 개인정보 보호를 최우선으로 합니다.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Q: 모바일에서도 사용할 수 있나요?</h3>
+                    <p>
+                        A: 네, 본 사이트는 모바일, 태블릿, 데스크톱 등 모든 기기에서 원활하게 작동하도록 최적화되어 있습니다.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Q: 사용 비용이 있나요?</h3>
+                    <p>
+                        A: 아니요, 본 사이트의 모든 서비스는 완전히 무료입니다. 회원가입도 필요하지 않습니다.
+                    </p>
+                </div>
+
+                <div class="legal-footer-note">
+                    <p>
+                        <strong>⚠️ 중요:</strong> 본 로또 번호 생성기는 순수 엔터테인먼트 목적으로만 제공됩니다.
+                        도박 문제로 어려움을 겪고 계시다면 <a href="https://www.kcgp.or.kr" target="_blank" rel="noopener">한국도박문제관리센터 (☎ 1336)</a>에 연락하세요.
+                        자세한 내용은 <a href="/disclaimer.html">면책조항</a>을 참조하세요.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- AdSense Ad Unit 3 -->
+        <div class="ad-container">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-1004898037535388"
+                 data-ad-slot="auto"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <!-- Related Articles -->
+        <section class="blog-preview-section">
+            <h2 class="section-title">관련 글</h2>
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <span class="blog-category">로또 교육</span>
+                    <h3>로또 확률의 이해</h3>
+                    <p class="blog-excerpt">
+                        로또 1등 당첨 확률 814만 5,060분의 1의 의미를 쉽게 설명합니다.
+                    </p>
+                    <a href="/blog/understanding-lottery-odds.html" class="blog-link">자세히 읽기 →</a>
+                </div>
+                <div class="blog-card">
+                    <span class="blog-category">로또 교육</span>
+                    <h3>책임감 있는 로또 구매</h3>
+                    <p class="blog-excerpt">
+                        건강한 로또 즐기기: 예산 설정, 기대치 관리, 도박 문제 예방.
+                    </p>
+                    <a href="/blog/responsible-lottery-playing.html" class="blog-link">자세히 읽기 →</a>
+                </div>
+                <div class="blog-card">
+                    <span class="blog-category">사용 방법</span>
+                    <h3>랜덤 번호 생성 원리</h3>
+                    <p class="blog-excerpt">
+                        JavaScript가 무작위 번호를 생성하는 방법과 공정성을 설명합니다.
+                    </p>
+                    <a href="/blog/random-number-generation.html" class="blog-link">자세히 읽기 →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comments Section -->
+        <div class="comments-section">
+            <h2>댓글</h2>
+            <div id="disqus_thread"></div>
+            <script>
+                (function() {
+                    var d = document, s = d.createElement('script');
+                    s.src = 'https://lotto-generator.disqus.com/embed.js';
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+    <script src="/shared/footer.js" type="module"></script>
+
+    <!-- Lotto Generator Script -->
+    <script>
+        const lottoNumbersContainer = document.getElementById('lotto-numbers');
+        const generateBtn = document.getElementById('generate-btn');
+
+        const getBallColor = (number) => {
+            if (number <= 10) return 'var(--ball-color-1)';
+            if (number <= 20) return 'var(--ball-color-2)';
+            if (number <= 30) return 'var(--ball-color-3)';
+            if (number <= 40) return 'var(--ball-color-4)';
+            return 'var(--ball-color-5)';
+        };
+
+        const generateLottoNumbers = () => {
+            const numbers = new Set();
+            while (numbers.size < 6) {
+                const randomNumber = Math.floor(Math.random() * 45) + 1;
+                numbers.add(randomNumber);
+            }
+            return Array.from(numbers).sort((a, b) => a - b);
+        };
+
+        const displayNumbers = (numbers) => {
+            lottoNumbersContainer.innerHTML = '';
+            for (const number of numbers) {
+                const ball = document.createElement('div');
+                ball.classList.add('lotto-ball');
+                ball.textContent = number;
+                ball.style.backgroundColor = getBallColor(number);
+                lottoNumbersContainer.appendChild(ball);
+            }
+        };
+
+        generateBtn.addEventListener('click', () => {
+            const newNumbers = generateLottoNumbers();
+            displayNumbers(newNumbers);
+        });
+
+        // Initial generation
+        displayNumbers(generateLottoNumbers());
+    </script>
+</body>
+</html>
