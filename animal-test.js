@@ -69,10 +69,11 @@ class AnimalTestController {
       const metadataURL = MODEL_URL + 'metadata.json';
       this.model = await tmImage.load(modelURL, metadataURL);
       this.maxPredictions = this.model.getTotalClasses();
-      console.log('Model loaded successfully');
+      console.log('[AnimalTest] Model loaded successfully');
     } catch (error) {
-      console.error('Error loading model:', error);
-      alert('AI 모델을 불러오는데 실패했습니다. 페이지를 새로고침해주세요.');
+      console.error('[AnimalTest] Error loading model:', error);
+      // Don't show alert - user may have navigated away
+      // Error will be handled when user tries to analyze
     }
   }
 
