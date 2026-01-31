@@ -188,7 +188,7 @@ h1 {
     max-width: 800px;
     margin: 40px auto;
     text-align: center;
-    min-height: 100px;
+    /* min-height removed - no empty space when ads not loaded */
 }
 
 /* Animal Test Styles */
