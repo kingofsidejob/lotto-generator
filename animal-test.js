@@ -216,16 +216,20 @@ class AnimalTestController {
 }
 
 export const initAnimalTest = () => {
+  console.log('[AnimalTest] initAnimalTest called - Version 2.0 (Fixed)');
+
   // Only initialize on animal test page
   if (!document.getElementById('upload-area')) {
+    console.log('[AnimalTest] upload-area not found, skipping initialization');
     return; // Not on animal test page, silently return
   }
 
   // Check if required TensorFlow.js libraries are loaded
   if (typeof tmImage === 'undefined') {
-    console.error('Teachable Machine library not loaded');
+    console.error('[AnimalTest] Teachable Machine library not loaded');
     return;
   }
 
+  console.log('[AnimalTest] Starting controller initialization');
   new AnimalTestController();
 };
