@@ -1,3 +1,6 @@
+import { initNavigation } from './navigation.js';
+import { initAnimalTest } from './animal-test.js';
+
 const lottoNumbersContainer = document.getElementById('lotto-numbers');
 const generateBtn = document.getElementById('generate-btn');
 const themeToggle = document.getElementById('theme-toggle');
@@ -47,6 +50,12 @@ themeToggle.addEventListener('click', () => {
     document.documentElement.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
     themeToggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+});
+
+// Initialize modules
+document.addEventListener('DOMContentLoaded', () => {
+    initNavigation();
+    initAnimalTest();
 });
 
 // Initial generation

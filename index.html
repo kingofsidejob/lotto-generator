@@ -3,16 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>로또 번호 생성기</title>
+    <title>로또 번호 생성기 & 동물상 테스트</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
     <script src="main.js" type="module" defer></script>
 </head>
 <body>
     <button id="theme-toggle" aria-label="테마 전환">🌙</button>
-    <div class="container">
-        <h1>로또 번호 생성기</h1>
-        <div class="lotto-numbers" id="lotto-numbers"></div>
-        <button id="generate-btn">번호 생성</button>
+
+    <nav class="main-nav">
+        <button class="nav-tab active" data-tab="lotto">로또 번호 생성</button>
+        <button class="nav-tab" data-tab="animal">동물상 테스트</button>
+    </nav>
+
+    <div class="tab-content active" id="lotto-tab">
+        <div class="container">
+            <h1>로또 번호 생성기</h1>
+            <div class="lotto-numbers" id="lotto-numbers"></div>
+            <button id="generate-btn">번호 생성</button>
+        </div>
+    </div>
+
+    <div class="tab-content" id="animal-tab">
+        <div class="container">
+            <h1>나는 어떤 동물상일까?</h1>
+
+            <!-- 업로드 영역 -->
+            <div class="upload-area" id="upload-area">
+                <p>얼굴 사진을 업로드해주세요</p>
+                <button class="upload-btn" id="upload-trigger">사진 선택하기</button>
+                <input type="file" id="image-upload" accept="image/jpeg,image/png,image/jpg" hidden>
+            </div>
+
+            <!-- 미리보기 영역 -->
+            <div class="preview-area hidden" id="preview-area">
+                <img id="preview-image" alt="미리보기">
+                <div class="preview-buttons">
+                    <button class="analyze-btn" id="analyze-btn">분석하기</button>
+                    <button class="reset-btn" id="reset-btn">다시 선택</button>
+                </div>
+            </div>
+
+            <!-- 로딩 영역 -->
+            <div class="loading-area hidden" id="loading-area">
+                <div class="spinner"></div>
+                <p>AI가 당신의 동물상을 분석하고 있어요...</p>
+            </div>
+
+            <!-- 결과 영역 -->
+            <div class="result-area hidden" id="result-area">
+                <div class="result-card">
+                    <div class="result-icon" id="result-icon"></div>
+                    <h2>당신은 <span id="animal-type"></span>상입니다!</h2>
+                    <div class="result-description" id="result-description"></div>
+                    <div class="confidence-bar">
+                        <div class="confidence-fill" id="confidence-fill"></div>
+                    </div>
+                    <span class="confidence-text" id="confidence-text"></span>
+                    <div class="result-buttons">
+                        <button class="share-btn" id="share-btn">결과 공유하기</button>
+                        <button class="retry-btn" id="retry-btn">다시 테스트하기</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="comments-section">
