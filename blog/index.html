@@ -17,9 +17,140 @@
     <meta property="og:description" content="로또 확률, 성격 테스트, AI 기술에 대한 재미있고 유익한 글">
     <meta property="og:locale" content="ko_KR">
 
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://html-1-u50.pages.dev/blog/index.html">
+
     <link rel="stylesheet" href="/style.css">
+
+    <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1004898037535388"
      crossorigin="anonymous"></script>
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "블로그 | 로또 교육 & 성격 테스트 이야기",
+      "description": "로또 확률, 책임감 있는 구매, AI 성격 테스트, 한국 관상 문화 등 재미있고 유익한 글을 읽어보세요.",
+      "url": "https://html-1-u50.pages.dev/blog/index.html",
+      "publisher": {
+        "@type": "Organization",
+        "name": "로또 & 동물상"
+      },
+      "inLanguage": "ko-KR"
+    }
+    </script>
+
+    <style>
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        @media (max-width: 1024px) {
+            .blog-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .blog-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-category {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .blog-card h3 {
+            margin: 15px 0 10px 0;
+            font-size: 1.25rem;
+            color: var(--text-color);
+        }
+
+        .blog-excerpt {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin: 15px 0;
+            font-size: 0.95rem;
+        }
+
+        .blog-meta {
+            display: flex;
+            gap: 15px;
+            margin: 15px 0;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .blog-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .blog-link {
+            display: inline-block;
+            color: var(--primary-color);
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 10px;
+            transition: color 0.3s;
+        }
+
+        .blog-link:hover {
+            color: var(--secondary-color);
+        }
+
+        .category-filter {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 10px 25px;
+            border: 2px solid var(--primary-color);
+            background: transparent;
+            color: var(--primary-color);
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary-color);
+            color: white;
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
@@ -37,231 +168,344 @@
         </section>
 
         <!-- Category Filter -->
-        <section class="legal-page" style="margin-top: 20px;">
-            <div class="legal-container">
-                <div style="text-align: center; margin-bottom: 40px;">
-                    <button class="cta-btn cta-btn-secondary" style="margin: 5px;" onclick="filterCategory('all')">전체</button>
-                    <button class="cta-btn cta-btn-secondary" style="margin: 5px;" onclick="filterCategory('lottery')">로또 교육</button>
-                    <button class="cta-btn cta-btn-secondary" style="margin: 5px;" onclick="filterCategory('personality')">성격 & 문화</button>
-                    <button class="cta-btn cta-btn-secondary" style="margin: 5px;" onclick="filterCategory('howto')">사용 방법</button>
-                </div>
-            </div>
+        <section class="category-filter">
+            <button class="filter-btn active" onclick="filterCategory('all')">전체 (20)</button>
+            <button class="filter-btn" onclick="filterCategory('lottery')">로또 교육 (10)</button>
+            <button class="filter-btn" onclick="filterCategory('personality')">성격 & 문화 (10)</button>
         </section>
 
         <!-- Blog Articles Grid -->
-        <section class="blog-preview-section">
-            <h2 class="section-title">로또 교육</h2>
-            <div class="blog-grid">
-                <div class="blog-card" data-category="lottery">
-                    <span class="blog-category">로또 교육</span>
-                    <h3>로또 확률의 이해</h3>
-                    <p class="blog-excerpt">
-                        로또 1등 당첨 확률 814만 5,060분의 1의 의미를 쉽게 설명합니다.
-                        조합 공식과 확률 계산을 직관적으로 이해해보세요.
-                    </p>
-                    <a href="/blog/understanding-lottery-odds.html" class="blog-link">자세히 읽기 →</a>
-                </div>
+        <section class="legal-page">
+            <div class="legal-container">
+                <div class="blog-grid" id="blogGrid">
+                    <!-- Article 1 -->
+                    <div class="blog-card" data-category="lottery">
+                        <span class="blog-category">로또 교육</span>
+                        <h3>로또 확률의 이해</h3>
+                        <p class="blog-excerpt">
+                            로또 1등 당첨 확률 814만 5,060분의 1의 의미를 쉽게 설명합니다.
+                            조합 공식과 확률 계산을 직관적으로 이해하고, 실생활 비유를 통해
+                            이 엄청난 확률이 얼마나 낮은지 체감해보세요.
+                        </p>
+                        <div class="blog-meta">
+                            <span>📅 2026년 1월 31일</span>
+                            <span>⏱️ 5분</span>
+                        </div>
+                        <a href="/blog/understanding-lottery-odds.html" class="blog-link">자세히 읽기 →</a>
+                    </div>
 
-                <div class="blog-card" data-category="lottery">
-                    <span class="blog-category">로또 교육</span>
-                    <h3>로또 번호 선택 전략</h3>
-                    <p class="blog-excerpt">
-                        사람들이 자주 사용하는 번호 선택 전략과 그것이 실제로 작동하는지 알아봅니다.
-                        미신과 사실을 구분해보세요.
-                    </p>
-                    <a href="/blog/lottery-number-strategies.html" class="blog-link">자세히 읽기 →</a>
-                </div>
+                    <!-- Article 2 -->
+                    <div class="blog-card" data-category="lottery">
+                        <span class="blog-category">로또 교육</span>
+                        <h3>로또 번호 선택 전략</h3>
+                        <p class="blog-excerpt">
+                            사람들이 자주 사용하는 번호 선택 전략들을 분석합니다.
+                            연속 번호, 생일 번호, 패턴 선택 등이 실제로 효과가 있을까요?
+                            모든 번호가 동일한 확률을 가진다는 사실을 확인해보세요.
+                        </p>
+                        <div class="blog-meta">
+                            <span>📅 2026년 1월 31일</span>
+                            <span>⏱️ 4분</span>
+                        </div>
+                        <a href="/blog/lottery-number-strategies.html" class="blog-link">자세히 읽기 →</a>
+                    </div>
 
-                <div class="blog-card" data-category="lottery">
-                    <span class="blog-category">로또 교육</span>
-                    <h3>한국 로또의 역사</h3>
-                    <p class="blog-excerpt">
-                        2002년부터 시작된 나눔로또의 역사, 최대 당첨금, 공익 기금 사용처 등을
-                        자세히 알아봅니다.
-                    </p>
-                    <a href="/blog/history-of-korean-lotto.html" class="blog-link">자세히 읽기 →</a>
-                </div>
+                    <!-- Article 3 -->
+                    <div class="blog-card" data-category="lottery">
+                        <span class="blog-category">로또 교육</span>
+                        <h3>한국 로또의 역사</h3>
+                        <p class="blog-excerpt">
+                            2002년부터 시작된 나눔로또 6/45의 역사를 살펴봅니다.
+                            최대 당첨금 기록, 복권 기금의 공익 사용처, 그리고 로또가
+                            한국 사회에 미친 문화적 영향을 자세히 알아봅니다.
+                        </p>
+                        <div class="blog-meta">
+                            <span>📅 2026년 1월 31일</span>
+                            <span>⏱️ 6분</span>
+                        </div>
+                        <a href="/blog/history-of-korean-lotto.html" class="blog-link">자세히 읽기 →</a>
+                    </div>
 
-                <div class="blog-card" data-category="lottery">
-                    <span class="blog-category">로또 교육</span>
-                    <h3>책임감 있는 로또 구매</h3>
-                    <p class="blog-excerpt">
-                        예산 설정, 건강한 기대치, 도박 문제 예방 방법을 배워
-                        안전하게 로또를 즐기세요.
-                    </p>
-                    <a href="/blog/responsible-lottery-playing.html" class="blog-link">자세히 읽기 →</a>
-                </div>
+                    <!-- Article 4 -->
+                    <div class="blog-card" data-category="lottery">
+                        <span class="blog-category">로또 교육</span>
+                        <h3>책임감 있는 로또 구매</h3>
+                        <p class="blog-excerpt">
+                            안전하게 로또를 즐기는 방법을 안내합니다. 소득의 1% 이하로
+                            예산 설정하기, 건강한 기대치 유지하기, 문제성 도박의 징후 알아차리기,
+                            그리고 필요할 때 도움 받을 수 있는 곳(1336)을 소개합니다.
+                        </p>
+                        <div class="blog-meta">
+                            <span>📅 2026년 1월 31일</span>
+                            <span>⏱️ 6분</span>
+                        </div>
+                        <a href="/blog/responsible-lottery-playing.html" class="blog-link">자세히 읽기 →</a>
+                    </div>
 
-                <div class="blog-card" data-category="lottery">
-                    <span class="blog-category">로또 교육</span>
-                    <h3>로또 당첨자 이야기</h3>
-                    <p class="blog-excerpt">
-                        언론에 공개된 익명의 당첨자 이야기를 통해 당첨 후 삶의 변화와
-                        재정 관리의 중요성을 알아봅니다.
-                    </p>
-                    <a href="/blog/lottery-winners-stories.html" class="blog-link">자세히 읽기 →</a>
-                </div>
+                    <!-- Article 5 -->
+                    <div class="blog-card" data-category="lottery">
+                        <span class="blog-category">로또 교육</span>
+                        <h3>로또 당첨자 이야기</h3>
+                        <p class="blog-excerpt">
+                            언론에 공개된 익명의 로또 당첨자들의 이야기를 통해
+                            당첨 후 삶의 변화를 살펴봅니다. 갑작스러운 부의 축복과 저주,
+                            재정 계획의 중요성, 그리고 행복의 진정한 의미를 배웁니다.
+                        </p>
+                        <div class="blog-meta">
+                            <span>📅 2026년 1월 31일</span>
+                            <span>⏱️ 5분</span>
+                        </div>
+                        <a href="/blog/lottery-winners-stories.html" class="blog-link">자세히 읽기 →</a>
+                    </div>
 
-                <div class="blog-card" data-category="lottery">
-                    <span class="blog-category">로또 교육</span>
-                    <h3>로또 미신 깨기</h3>
-                    <p class="blog-excerpt">
-                        "행운의 숫자", "나올 때가 된 번호" 등 흔한 로또 미신을
-                        과학적으로 분석하고 진실을 밝힙니다.
-                    </p>
-                    <a href="/blog/lottery-myths-debunked.html" class="blog-link">자세히 읽기 →</a>
-                </div>
+                    <!-- Article 6 -->
+                    <div class="blog-card" data-category="lottery">
+                        <span class="blog-category">로또 교육</span>
+                        <h3>로또 미신 깨기</h3>
+                        <p class="blog-excerpt">
+                            "행운의 숫자가 있다", "나올 때가 된 번호가 있다",
+                            "특정 패턴이 더 자주 나온다" 등의 흔한 로또 미신들을
+                            과학적으로 분석하고 진실을 밝혀냅니다.
+                        </p>
+                        <div class="blog-meta">
+                            <span>📅 2026년 1월 31일</span>
+                            <span>⏱️ 4분</span>
+                        </div>
+                        <a href="/blog/lottery-myths-debunked.html" class="blog-link">자세히 읽기 →</a>
+                    </div>
 
-                <div class="blog-card" data-category="lottery">
-                    <span class="blog-category">로또 교육</span>
-                    <h3>확률 기초 지식</h3>
-                    <p class="blog-excerpt">
-                        확률이란 무엇인가? 독립 사건이란? 초보자를 위한
-                        확률 개념을 쉽게 설명합니다.
-                    </p>
-                    <a href="/blog/probability-basics-beginners.html" class="blog-link">자세히 읽기 →</a>
-                </div>
+                    <!-- Article 7 -->
+                    <div class="blog-card" data-category="lottery">
+                        <span class="blog-category">로또 교육</span>
+                        <h3>확률 기초 지식</h3>
+                        <p class="blog-excerpt">
+                            확률이란 무엇일까요? 독립 사건과 종속 사건의 차이는?
+                            초보자를 위한 확률의 기본 개념을 쉽게 설명합니다.
+                            동전 던지기와 주사위 예시를 통해 직관적으로 이해해보세요.
+                        </p>
+                        <div class="blog-meta">
+                            <span>📅 2026년 1월 31일</span>
+                            <span>⏱️ 5분</span>
+                        </div>
+                        <a href="/blog/probability-basics-beginners.html" class="blog-link">자세히 읽기 →</a>
+                    </div>
 
-                <div class="blog-card" data-category="lottery">
-                    <span class="blog-category">로또 교육</span>
-                    <h3>로또 통계 분석</h3>
-                    <p class="blog-excerpt">
-                        과거 추첨 데이터 분석의 한계와 왜 과거가 미래를 예측하지 못하는지
-                        통계적으로 설명합니다.
-                    </p>
-                    <a href="/blog/lottery-statistics-analysis.html" class="blog-link">자세히 읽기 →</a>
-                </div>
+                    <!-- Article 8 -->
+                    <div class="blog-card" data-category="lottery">
+                        <span class="blog-category">로또 교육</span>
+                        <h3>로또 통계 분석</h3>
+                        <p class="blog-excerpt">
+                            과거 추첨 데이터 분석의 한계를 설명합니다. 왜 과거 당첨 번호가
+                            미래를 예측하지 못할까요? 통계적 독립성의 개념을 이해하고,
+                            데이터 분석의 올바른 활용법을 배워봅니다.
+                        </p>
+                        <div class="blog-meta">
+                            <span>📅 2026년 1월 31일</span>
+                            <span>⏱️ 4분</span>
+                        </div>
+                        <a href="/blog/lottery-statistics-analysis.html" class="blog-link">자세히 읽기 →</a>
+                    </div>
 
-                <div class="blog-card" data-category="lottery">
-                    <span class="blog-category">로또 교육</span>
-                    <h3>엔터테인먼트 vs 도박</h3>
-                    <p class="blog-excerpt">
-                        건강한 로또 참여와 문제성 도박의 차이점, 자가 진단 방법,
-                        도움을 받을 수 있는 곳을 안내합니다.
-                    </p>
-                    <a href="/blog/entertainment-vs-gambling.html" class="blog-link">자세히 읽기 →</a>
-                </div>
+                    <!-- Article 9 -->
+                    <div class="blog-card" data-category="lottery">
+                        <span class="blog-category">로또 교육</span>
+                        <h3>엔터테인먼트 vs 도박</h3>
+                        <p class="blog-excerpt">
+                            건강한 로또 참여와 문제성 도박의 차이점을 명확히 구분합니다.
+                            자가 진단 체크리스트, 경고 신호, 그리고 도움을 받을 수 있는
+                            한국도박문제관리센터(1336) 등의 자원을 안내합니다.
+                        </p>
+                        <div class="blog-meta">
+                            <span>📅 2026년 1월 31일</span>
+                            <span>⏱️ 6분</span>
+                        </div>
+                        <a href="/blog/entertainment-vs-gambling.html" class="blog-link">자세히 읽기 →</a>
+                    </div>
 
-                <div class="blog-card" data-category="lottery howto">
-                    <span class="blog-category">사용 방법</span>
-                    <h3>랜덤 번호 생성 원리</h3>
-                    <p class="blog-excerpt">
-                        JavaScript의 Math.random() 함수가 무작위 번호를 생성하는 방법과
-                        공정성에 대해 설명합니다.
-                    </p>
-                    <a href="/blog/random-number-generation.html" class="blog-link">자세히 읽기 →</a>
+                    <!-- Article 10 -->
+                    <div class="blog-card" data-category="lottery">
+                        <span class="blog-category">로또 교육</span>
+                        <h3>랜덤 번호 생성 원리</h3>
+                        <p class="blog-excerpt">
+                            JavaScript의 Math.random() 함수가 무작위 번호를 생성하는 방법을
+                            설명합니다. 진정한 난수와 의사 난수의 차이, 그리고 우리
+                            로또 번호 생성기의 공정성을 투명하게 공개합니다.
+                        </p>
+                        <div class="blog-meta">
+                            <span>📅 2026년 1월 31일</span>
+                            <span>⏱️ 5분</span>
+                        </div>
+                        <a href="/blog/random-number-generation.html" class="blog-link">자세히 읽기 →</a>
+                    </div>
+
+                    <!-- Article 11 -->
+                    <div class="blog-card" data-category="personality">
+                        <span class="blog-category">성격 & 문화</span>
+                        <h3>동물상의 과학</h3>
+                        <p class="blog-excerpt">
+                            동물 성격 시스템의 기원을 탐구합니다. MBTI와의 상관관계,
+                            엔터테인먼트와 실제 과학의 차이, 그리고 왜 사람들이
+                            이런 성격 분류에 매력을 느끼는지 심리학적으로 분석합니다.
+                        </p>
+                        <div class="blog-meta">
+                            <span>📅 2026년 1월 31일</span>
+                            <span>⏱️ 5분</span>
+                        </div>
+                        <a href="/blog/animal-personality-science.html" class="blog-link">자세히 읽기 →</a>
+                    </div>
+
+                    <!-- Article 12 -->
+                    <div class="blog-card" data-category="personality">
+                        <span class="blog-category">성격 & 문화</span>
+                        <h3>한국의 관상 문화</h3>
+                        <p class="blog-excerpt">
+                            한국 전통 관상학의 역사적 배경과 현대적 해석을 살펴봅니다.
+                            조선시대부터 전해 내려온 얼굴 읽기의 지혜, 그리고
+                            현대 동물상 트렌드와의 연결고리를 흥미롭게 풀어냅니다.
+                        </p>
+                        <div class="blog-meta">
+                            <span>📅 2026년 1월 31일</span>
+                            <span>⏱️ 6분</span>
+                        </div>
+                        <a href="/blog/face-reading-korean-culture.html" class="blog-link">자세히 읽기 →</a>
+                    </div>
+
+                    <!-- Article 13 -->
+                    <div class="blog-card" data-category="personality">
+                        <span class="blog-category">성격 & 문화</span>
+                        <h3>성격 테스트의 심리학</h3>
+                        <p class="blog-excerpt">
+                            신뢰할 수 있는 심리 평가와 온라인 테스트의 차이를 설명합니다.
+                            Big Five 성격 특성 모델, 바넘 효과(Barnum Effect), 그리고
+                            왜 우리가 성격 테스트 결과를 믿게 되는지 알아봅니다.
+                        </p>
+                        <div class="blog-meta">
+                            <span>📅 2026년 1월 31일</span>
+                            <span>⏱️ 5분</span>
+                        </div>
+                        <a href="/blog/personality-test-psychology.html" class="blog-link">자세히 읽기 →</a>
+                    </div>
+
+                    <!-- Article 14 -->
+                    <div class="blog-card" data-category="personality">
+                        <span class="blog-category">성격 & 문화</span>
+                        <h3>AI 얼굴 인식 원리</h3>
+                        <p class="blog-excerpt">
+                            AI가 얼굴을 인식하는 방법을 투명하게 공개합니다. 머신러닝 기초,
+                            Google의 Teachable Machine 작동 원리, TensorFlow.js의 역할,
+                            그리고 브라우저에서만 처리되는 프라이버시 보호 방식을 설명합니다.
+                        </p>
+                        <div class="blog-meta">
+                            <span>📅 2026년 1월 31일</span>
+                            <span>⏱️ 6분</span>
+                        </div>
+                        <a href="/blog/ai-face-recognition-explained.html" class="blog-link">자세히 읽기 →</a>
+                    </div>
+
+                    <!-- Article 15 -->
+                    <div class="blog-card" data-category="personality">
+                        <span class="blog-category">성격 & 문화</span>
+                        <h3>한국의 동물 상징</h3>
+                        <p class="blog-excerpt">
+                            호랑이(국가 동물), 사자, 여우 등 한국 문화에서 동물들이 가진
+                            상징성을 탐구합니다. 전통 민속 이야기, 설화 속 동물들,
+                            그리고 현대 동물상 테스트와의 문화적 연결고리를 찾아봅니다.
+                        </p>
+                        <div class="blog-meta">
+                            <span>📅 2026년 1월 31일</span>
+                            <span>⏱️ 5분</span>
+                        </div>
+                        <a href="/blog/animal-symbolism-korea.html" class="blog-link">자세히 읽기 →</a>
+                    </div>
+
+                    <!-- Article 16 -->
+                    <div class="blog-card" data-category="personality">
+                        <span class="blog-category">성격 & 문화</span>
+                        <h3>우리 도구의 작동 원리</h3>
+                        <p class="blog-excerpt">
+                            로또 번호 생성기와 AI 동물상 테스트의 기술적 배경을
+                            투명하게 공개합니다. 사용된 기술 스택, 알고리즘,
+                            개인정보 보호 설계, 그리고 오픈 소스 정신을 상세히 설명합니다.
+                        </p>
+                        <div class="blog-meta">
+                            <span>📅 2026년 1월 31일</span>
+                            <span>⏱️ 6분</span>
+                        </div>
+                        <a href="/blog/how-our-tools-work.html" class="blog-link">자세히 읽기 →</a>
+                    </div>
+
+                    <!-- Article 17 -->
+                    <div class="blog-card" data-category="personality">
+                        <span class="blog-category">성격 & 문화</span>
+                        <h3>한국의 얼굴형과 미의 기준</h3>
+                        <p class="blog-excerpt">
+                            한국 사회의 미의 기준 변화를 살펴봅니다. 동물상 트렌드의 부상,
+                            V라인 신화, 그리고 다양성 존중의 중요성에 대해
+                            균형 잡힌 시각을 제공합니다. 모든 얼굴이 아름답습니다.
+                        </p>
+                        <div class="blog-meta">
+                            <span>📅 2026년 1월 31일</span>
+                            <span>⏱️ 5분</span>
+                        </div>
+                        <a href="/blog/face-types-korean-beauty.html" class="blog-link">자세히 읽기 →</a>
+                    </div>
+
+                    <!-- Article 18 -->
+                    <div class="blog-card" data-category="personality">
+                        <span class="blog-category">성격 & 문화</span>
+                        <h3>성격 테스트의 정확도</h3>
+                        <p class="blog-excerpt">
+                            온라인 성격 테스트의 한계를 솔직하게 설명합니다.
+                            엔터테인먼트와 전문 심리 평가의 차이, 언제 전문가를
+                            찾아야 하는지, 그리고 테스트 결과를 어떻게 해석해야 하는지 안내합니다.
+                        </p>
+                        <div class="blog-meta">
+                            <span>📅 2026년 1월 31일</span>
+                            <span>⏱️ 4분</span>
+                        </div>
+                        <a href="/blog/personality-test-accuracy.html" class="blog-link">자세히 읽기 →</a>
+                    </div>
+
+                    <!-- Article 19 -->
+                    <div class="blog-card" data-category="lottery">
+                        <span class="blog-category">로또 교육</span>
+                        <h3>로또에 대한 건강한 마음가짐</h3>
+                        <p class="blog-excerpt">
+                            로또를 즐기면서도 건강한 태도를 유지하는 방법을 안내합니다.
+                            현실적인 기대치 설정하기, 작은 즐거움 찾기, 균형 잡힌 관점으로
+                            로또를 대하는 지혜를 배워봅니다.
+                        </p>
+                        <div class="blog-meta">
+                            <span>📅 2026년 1월 31일</span>
+                            <span>⏱️ 5분</span>
+                        </div>
+                        <a href="/blog/improve-lottery-mindset.html" class="blog-link">자세히 읽기 →</a>
+                    </div>
+
+                    <!-- Article 20 -->
+                    <div class="blog-card" data-category="personality">
+                        <span class="blog-category">성격 & 문화</span>
+                        <h3>한국의 운세 문화</h3>
+                        <p class="blog-excerpt">
+                            사주팔자, 타로, 토정비결 등 한국 전통 운세 문화를 탐구합니다.
+                            역사적 배경, 현대적 재해석, 그리고 젊은 세대 사이에서
+                            다시 인기를 얻고 있는 이유를 문화적 관점에서 분석합니다.
+                        </p>
+                        <div class="blog-meta">
+                            <span>📅 2026년 1월 31일</span>
+                            <span>⏱️ 6분</span>
+                        </div>
+                        <a href="/blog/korean-fortune-telling-traditions.html" class="blog-link">자세히 읽기 →</a>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- AdSense Ad Unit -->
-                <section class="blog-preview-section">
-            <h2 class="section-title">성격 & 문화</h2>
-            <div class="blog-grid">
-                <div class="blog-card" data-category="personality">
-                    <span class="blog-category">성격 & 문화</span>
-                    <h3>동물상의 과학</h3>
-                    <p class="blog-excerpt">
-                        동물 성격 시스템의 기원, MBTI와의 상관관계, 엔터테인먼트와
-                        실제 과학의 차이를 탐구합니다.
-                    </p>
-                    <a href="/blog/animal-personality-science.html" class="blog-link">자세히 읽기 →</a>
-                </div>
-
-                <div class="blog-card" data-category="personality">
-                    <span class="blog-category">성격 & 문화</span>
-                    <h3>한국의 관상 문화</h3>
-                    <p class="blog-excerpt">
-                        한국 전통 관상학(관상)의 역사적 배경과 현대적 해석,
-                        동물상 트렌드와의 연결고리를 알아봅니다.
-                    </p>
-                    <a href="/blog/face-reading-korean-culture.html" class="blog-link">자세히 읽기 →</a>
-                </div>
-
-                <div class="blog-card" data-category="personality">
-                    <span class="blog-category">성격 & 문화</span>
-                    <h3>성격 테스트의 심리학</h3>
-                    <p class="blog-excerpt">
-                        신뢰할 수 있는 심리 평가와 온라인 테스트의 차이, Big Five 특성,
-                        바넘 효과에 대해 알아봅니다.
-                    </p>
-                    <a href="/blog/personality-test-psychology.html" class="blog-link">자세히 읽기 →</a>
-                </div>
-
-                <div class="blog-card" data-category="personality howto">
-                    <span class="blog-category">사용 방법</span>
-                    <h3>AI 얼굴 인식 원리</h3>
-                    <p class="blog-excerpt">
-                        AI가 얼굴을 인식하는 방법, 머신러닝 기초, Teachable Machine 설명,
-                        프라이버시 보호 방식을 투명하게 공개합니다.
-                    </p>
-                    <a href="/blog/ai-face-recognition-explained.html" class="blog-link">자세히 읽기 →</a>
-                </div>
-
-                <div class="blog-card" data-category="personality">
-                    <span class="blog-category">성격 & 문화</span>
-                    <h3>한국의 동물 상징</h3>
-                    <p class="blog-excerpt">
-                        호랑이(국가 동물), 사자 등 한국 문화에서 동물의 상징성과
-                        전통 민속 이야기를 탐구합니다.
-                    </p>
-                    <a href="/blog/animal-symbolism-korea.html" class="blog-link">자세히 읽기 →</a>
-                </div>
-
-                <div class="blog-card" data-category="howto">
-                    <span class="blog-category">사용 방법</span>
-                    <h3>우리 도구의 작동 원리</h3>
-                    <p class="blog-excerpt">
-                        로또 번호 생성기와 AI 동물상 테스트의 기술적 배경을
-                        투명하게 공개합니다.
-                    </p>
-                    <a href="/blog/how-our-tools-work.html" class="blog-link">자세히 읽기 →</a>
-                </div>
-
-                <div class="blog-card" data-category="personality">
-                    <span class="blog-category">성격 & 문화</span>
-                    <h3>한국의 얼굴형과 미의 기준</h3>
-                    <p class="blog-excerpt">
-                        한국 미의 기준, 동물상 트렌드, 다양성 존중에 대해
-                        균형 잡힌 시각을 제공합니다.
-                    </p>
-                    <a href="/blog/face-types-korean-beauty.html" class="blog-link">자세히 읽기 →</a>
-                </div>
-
-                <div class="blog-card" data-category="personality">
-                    <span class="blog-category">성격 & 문화</span>
-                    <h3>성격 테스트의 정확도</h3>
-                    <p class="blog-excerpt">
-                        온라인 테스트의 한계, 엔터테인먼트와 전문 평가의 차이,
-                        언제 전문가를 찾아야 하는지 설명합니다.
-                    </p>
-                    <a href="/blog/personality-test-accuracy.html" class="blog-link">자세히 읽기 →</a>
-                </div>
-
-                <div class="blog-card" data-category="lottery">
-                    <span class="blog-category">로또 교육</span>
-                    <h3>로또에 대한 건강한 마음가짐</h3>
-                    <p class="blog-excerpt">
-                        건강한 기대치, 즐거움 찾기, 균형 잡힌 관점으로
-                        로또를 즐기는 방법을 안내합니다.
-                    </p>
-                    <a href="/blog/improve-lottery-mindset.html" class="blog-link">자세히 읽기 →</a>
-                </div>
-
-                <div class="blog-card" data-category="personality">
-                    <span class="blog-category">성격 & 문화</span>
-                    <h3>한국의 운세 문화</h3>
-                    <p class="blog-excerpt">
-                        사주, 타로, 토정비결 등 한국 전통 운세 문화와
-                        현대적 재해석에 대해 알아봅니다.
-                    </p>
-                    <a href="/blog/korean-fortune-telling-traditions.html" class="blog-link">자세히 읽기 →</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- AdSense Ad Unit -->
-            </main>
+        <div class="ad-container">
+            <!-- Blog Index Page Ad -->
+        </div>
+    </main>
 
     <!-- Footer -->
     <div id="footer-placeholder"></div>
@@ -270,12 +514,19 @@
     <script>
         function filterCategory(category) {
             const cards = document.querySelectorAll('.blog-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            // Update active button
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Filter cards
             cards.forEach(card => {
                 if (category === 'all') {
                     card.style.display = 'block';
                 } else {
-                    const categories = card.getAttribute('data-category');
-                    if (categories.includes(category)) {
+                    const cardCategory = card.getAttribute('data-category');
+                    if (cardCategory === category) {
                         card.style.display = 'block';
                     } else {
                         card.style.display = 'none';

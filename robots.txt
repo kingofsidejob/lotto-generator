@@ -1,11 +1,14 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://your-domain.com/sitemap.xml
+Sitemap: https://html-1-u50.pages.dev/sitemap.xml
 
 # Google AdSense Bot
 User-agent: Mediapartners-Google
 Allow: /
 
-# Disallow admin or sensitive paths (if any in future)
-# Disallow: /admin/
+# Google AdSense Crawler
+User-agent: AdsBot-Google
+Allow: /
+
+# All content is public - no restrictions
