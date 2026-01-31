@@ -182,25 +182,8 @@ h1 {
     display: none !important;
 }
 
-/* AdSense Container */
-.ad-container {
-    width: 100%;
-    max-width: 800px;
-    margin: 40px auto;
-    text-align: center;
-    /* Hide containers until AdSense is approved */
-    display: none;
-}
-
-/* Uncomment this when AdSense is approved */
-/*
-.ad-container {
-    width: 100%;
-    max-width: 800px;
-    margin: 40px auto;
-    text-align: center;
-}
-*/
+/* AdSense - Using Auto Ads (managed in AdSense dashboard) */
+/* Manual ad containers removed - Google will auto-place ads after approval */
 
 /* Animal Test Styles */
 .upload-area {
