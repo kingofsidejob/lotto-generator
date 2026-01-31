@@ -53,6 +53,7 @@ body {
     padding: 140px 20px 40px;
     background-image: radial-gradient(circle, rgba(0,0,0,0.02) 5%, transparent 5%);
     background-size: 20px 20px;
+    overflow-y: scroll; /* 항상 스크롤바 표시 */
 }
 
 main {
@@ -671,38 +672,10 @@ h1 {
     pointer-events: auto;
 }
 
-.mobile-nav {
-    position: absolute;
-    top: 80px;
-    left: 0;
-    right: 0;
-    background-color: var(--container-bg);
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    box-shadow: 0 4px 20px var(--shadow-color);
-}
-
-.mobile-nav-link {
-    text-decoration: none;
-    color: var(--text-color);
-    font-size: 1.2rem;
-    font-weight: 500;
-    padding: 15px;
-    border-radius: 10px;
-    transition: all 0.3s ease;
-    text-align: center;
-}
-
-.mobile-nav-link:hover,
-.mobile-nav-link.active {
-    background-color: var(--accent-color);
-    color: white;
-}
-
 body.menu-open {
-    overflow: hidden;
+    overflow-y: scroll; /* hidden 대신 scroll 사용 */
+    position: fixed;    /* 스크롤 방지하면서 쏠림 없음 */
+    width: 100%;
 }
 
 /* ========================================
@@ -1592,7 +1565,7 @@ body.menu-open {
 
 @media (max-width: 768px) {
     body {
-        padding: 100px 10px 20px;
+        padding: 100px 15px 20px; /* 좌우 10px → 15px */
     }
 
     .main-nav {
@@ -1629,6 +1602,19 @@ body.menu-open {
         display: block;
         padding: 15px 10px;
         font-size: 1.1rem;
+        color: var(--text-color) !important; /* 명시적으로 강제 설정 */
+        text-decoration: none;
+    }
+
+    /* 다크 모드 대비 추가 보정 */
+    [data-theme="dark"] .nav-list a {
+        color: #eaeaea !important;
+    }
+
+    /* 라이트 모드 대비 추가 보정 */
+    [data-theme="light"] .nav-list a,
+    :root .nav-list a {
+        color: #333 !important;
     }
 
     .nav-list a.active::after {
@@ -1830,6 +1816,14 @@ body.menu-open {
 }
 
 @media (max-width: 480px) {
+    body {
+        padding: 90px 15px 20px; /* 좌우 15px 유지 */
+    }
+
+    .container {
+        padding: 25px 15px; /* 컨테이너도 여유 확보 */
+    }
+
     .footer-grid {
         grid-template-columns: 1fr;
         gap: 15px;
@@ -1874,6 +1868,10 @@ body.menu-open {
    ULTRA-SMALL SCREENS (< 320px)
    ======================================== */
 @media (max-width: 320px) {
+    body {
+        padding: 80px 12px 15px; /* 좌우 12px로 미세 조정 */
+    }
+
     .lotto-ball {
         width: 45px;
         height: 45px;
@@ -2343,103 +2341,3 @@ body.menu-open {
     background: linear-gradient(135deg, #2a4430, #3d5a40);
 }
 
-/* ========================================
-   ENHANCED RESPONSIVE BREAKPOINTS
-   ======================================== */
-@media (max-width: 1024px) {
-    .hero-section h1 {
-        font-size: 2.5rem;
-    }
-
-    .section-title {
-        font-size: 2rem;
-    }
-
-    .blog-container,
-    .legal-container {
-        padding: 40px 30px;
-    }
-
-    .footer-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 768px) {
-    .hero-section h1 {
-        font-size: 2rem;
-    }
-
-    .section-title {
-        font-size: 1.7rem;
-    }
-
-    .blog-container,
-    .legal-container {
-        padding: 30px 20px;
-    }
-
-    .blog-header h1 {
-        font-size: 2rem;
-    }
-
-    .blog-content {
-        font-size: 1rem;
-    }
-
-    .blog-content h2 {
-        font-size: 1.5rem;
-    }
-
-    .blog-content h3 {
-        font-size: 1.2rem;
-    }
-
-    .blog-navigation {
-        flex-direction: column;
-    }
-
-    .breadcrumb {
-        margin-top: 70px;
-    }
-
-    .service-cards,
-    .value-items {
-        grid-template-columns: 1fr;
-    }
-
-    .blog-meta {
-        font-size: 0.85rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-section {
-        padding: 60px 20px 40px;
-    }
-
-    .hero-section h1 {
-        font-size: 1.7rem;
-    }
-
-    .hero-subtitle {
-        font-size: 1rem;
-    }
-
-    .blog-header h1 {
-        font-size: 1.7rem;
-    }
-
-    .blog-container {
-        padding: 25px 15px;
-    }
-
-    .info-box {
-        padding: 20px;
-    }
-
-    .service-card,
-    .value-item {
-        padding: 25px;
-    }
-}
