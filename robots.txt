@@ -1,7 +1,11 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://html-1-u50.pages.dev/sitemap.xml
+Sitemap: https://lotto-generator-3nx.pages.dev/sitemap.xml
+
+# Google Search Bot
+User-agent: Googlebot
+Allow: /
 
 # Google AdSense Bot
 User-agent: Mediapartners-Google
@@ -9,6 +13,10 @@ Allow: /
 
 # Google AdSense Crawler
 User-agent: AdsBot-Google
+Allow: /
+
+# Naver Search Bot
+User-agent: Yeti
 Allow: /
 
 # All content is public - no restrictions
